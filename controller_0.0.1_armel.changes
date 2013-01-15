@@ -1,0 +1,23 @@
+Format: 1.8
+Date: Mon, 14 Jan 2013 23:11:12 -0500
+Source: controller
+Binary: controller
+Architecture: armel
+Version: 0.0.1
+Distribution: unstable
+Urgency: low
+Maintainer: unknown <>
+Changed-By: unknown <>
+Description: 
+ controller - <insert up to 60 chars description>
+Changes: 
+ controller (0.0.1) unstable; urgency=low
+ .
+   * Initial Release.
+Checksums-Sha1: 
+ e12a461df17755df9179e31ce770d300f71be4ad 16932 controller_0.0.1_armel.deb
+Checksums-Sha256: 
+ badd1ae3ca8fdf66670ff1c8c2ca16475b0f4b92ccdd38ed82125f7c4e5e78f4 16932 controller_0.0.1_armel.deb
+Files: 
+ 5056e1cb518f8558a3b03835c8a7c2af 16932 user/other optional controller_0.0.1_armel.deb
+Maemo-Display-Name: controller
