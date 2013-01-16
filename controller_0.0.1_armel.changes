@@ -9,15 +9,15 @@ Urgency: low
 Maintainer: unknown <>
 Changed-By: unknown <>
 Description: 
- controller - <insert up to 60 chars description>
+ controller - Control Pad for Nokia N9
 Changes: 
  controller (0.0.1) unstable; urgency=low
  .
    * Initial Release.
 Checksums-Sha1: 
- e12a461df17755df9179e31ce770d300f71be4ad 16932 controller_0.0.1_armel.deb
+ fb9c7f844d6289a52034a2514af1d8debf9b23d3 14948 controller_0.0.1_armel.deb
 Checksums-Sha256: 
- badd1ae3ca8fdf66670ff1c8c2ca16475b0f4b92ccdd38ed82125f7c4e5e78f4 16932 controller_0.0.1_armel.deb
+ b9b215df0d190634b70d8874b88c7d57cc6618c8f9fe3aa92ad9760c97325d51 14948 controller_0.0.1_armel.deb
 Files: 
- 5056e1cb518f8558a3b03835c8a7c2af 16932 user/other optional controller_0.0.1_armel.deb
-Maemo-Display-Name: controller
+ cf11d7cfb61fadba4dc9377edae1456f 14948 user/other optional controller_0.0.1_armel.deb
+Maemo-Display-Name: Control Pad

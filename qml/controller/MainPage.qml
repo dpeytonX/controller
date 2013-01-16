@@ -16,7 +16,7 @@ Page {
             y: 100
         }
 
-        ControlPad {
+        DirectionalPad {
             id: controller
             anchors.bottom: parent.bottom
             anchors.horizontalCenter: parent.horizontalCenter
@@ -25,8 +25,16 @@ Page {
                 sprite.x -= 10
             }
 
+            onLeftHeld: {
+                sprite.x -= 10
+            }
+
             onRightPressed: {
                 console.log("Moving sprite right")
+                sprite.x += 10
+            }
+
+            onRightHeld: {
                 sprite.x += 10
             }
 
@@ -35,8 +43,16 @@ Page {
                 sprite.y += 10
             }
 
+            onDownHeld: {
+                sprite.y += 10
+            }
+
             onUpPressed: {
                 console.log("Moving sprite up")
+                sprite.y -= 10
+            }
+
+            onUpHeld: {
                 sprite.y -= 10
             }
         }
