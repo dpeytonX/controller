@@ -48,4 +48,8 @@ OTHER_FILES += \
     controller64.png \
     controller_harmattan.desktop \
     controller.svg \
-    controller.desktop
+    controller.desktop \
+    qml/controller/resources/up.png \
+    qml/controller/resources/right.png \
+    qml/controller/resources/left.png \
+    qml/controller/resources/down.png

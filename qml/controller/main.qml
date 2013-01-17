@@ -24,6 +24,27 @@ PageStackWindow {
         id: myMenu
         visualParent: pageStack
         MenuLayout {
+            MenuItem {
+                id: dpadItem
+                text: qsTr("Directional Pad")
+                onClicked: {
+                    var curPage = pageStack.currentPage
+                    if(!!curPage && !!curPage.objectName && curPage.objectName != "mainPage") {
+                        pageStack.replace(Qt.resolvedUrl("MainPage.qml"))
+                    }
+                }
+            }
+
+            MenuItem {
+                id: styleDirPadItem
+                text: qsTr("Styled Pad")
+                onClicked: {
+                    var curPage = pageStack.currentPage
+                    if(!!curPage && !!curPage.objectName && curPage.objectName != "styleDirPad") {
+                        pageStack.replace(Qt.resolvedUrl("StyleDirPad.qml"))
+                    }
+                }
+            }
 
             MenuItem {
                 id: quitItem

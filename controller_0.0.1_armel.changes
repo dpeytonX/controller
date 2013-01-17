@@ -15,9 +15,9 @@ Changes:
  .
    * Initial Release.
 Checksums-Sha1: 
- fb9c7f844d6289a52034a2514af1d8debf9b23d3 14948 controller_0.0.1_armel.deb
+ 2d923a5e5eb8dff85def32a78ac4ab651f57d9a4 21762 controller_0.0.1_armel.deb
 Checksums-Sha256: 
- b9b215df0d190634b70d8874b88c7d57cc6618c8f9fe3aa92ad9760c97325d51 14948 controller_0.0.1_armel.deb
+ fb788749b68b801e9351aea0937ebeee7ce0d08c4013b2df9e4e639e88bcd66e 21762 controller_0.0.1_armel.deb
 Files: 
- cf11d7cfb61fadba4dc9377edae1456f 14948 user/other optional controller_0.0.1_armel.deb
+ 53db4febd54a4a28be118be38a56dd7e 21762 user/other optional controller_0.0.1_armel.deb
 Maemo-Display-Name: Control Pad

@@ -3,9 +3,8 @@ import com.nokia.meego 1.0
 import "controlpad"
 
 Page {
-    id: mainPage
     tools: commonTools
-    objectName: "mainPage"
+    objectName: "styleDirPad"
 
     Rectangle {
         id: backgroundRect
@@ -21,12 +20,25 @@ Page {
 
         DirectionalPad {
             id: controller
+            dPadButtonWidth: 90
+            dPadButtonHeight: 70
+            upButtonWidth: 70
+            upButtonHeight: 90
+            downButtonWidth: 70
+            downButtonHeight: 90
+
+            iconDown: iconDown
+            iconUp: iconUp
+            iconRight: iconRight
+            iconLeft: iconLeft
+
+            leftColor: "black"
+            rightColor: "black"
+            upColor: "black"
+            downColor: "black"
+
             anchors.bottom: parent.bottom
             anchors.horizontalCenter: parent.horizontalCenter
-            leftColor: "blue"
-            rightColor: "blue"
-            downColor: "blue"
-            upColor: "blue"
 
             function moveSpriteLeft() {
                 console.log("Moving sprite left")
@@ -56,6 +68,23 @@ Page {
             onDownHeld: moveSpriteDown()
             onUpPressed: moveSpriteUp()
             onUpHeld: moveSpriteUp()
+
+            Image {
+                id: iconDown
+                source: "resources/down.png"
+            }
+            Image {
+                id: iconUp
+                source: "resources/up.png"
+            }
+            Image {
+                id: iconRight
+                source: "resources/right.png"
+            }
+            Image {
+                id: iconLeft
+                source: "resources/left.png"
+            }
         }
     }
 }
