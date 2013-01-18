@@ -47,6 +47,17 @@ PageStackWindow {
             }
 
             MenuItem {
+                id: screenDirPad
+                text: qsTr("Screen Pad")
+                onClicked: {
+                    var curPage = pageStack.currentPage
+                    if(!!curPage && !!curPage.objectName && curPage.objectName != "styleDirPad") {
+                        pageStack.replace(Qt.resolvedUrl("ScreenDirPad.qml"))
+                    }
+                }
+            }
+
+            MenuItem {
                 id: quitItem
                 text: qsTr("Quit")
                 onClicked: {
