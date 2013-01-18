@@ -19,7 +19,7 @@ Page {
             y: 100
         }
 
-        DirectionalPad {
+        TraditionalPad {
             id: controller
             dPadButtonWidth: 90
             dPadButtonHeight: 70

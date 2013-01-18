@@ -51,7 +51,7 @@ PageStackWindow {
                 text: qsTr("Screen Pad")
                 onClicked: {
                     var curPage = pageStack.currentPage
-                    if(!!curPage && !!curPage.objectName && curPage.objectName != "styleDirPad") {
+                    if(!!curPage && !!curPage.objectName && curPage.objectName != "screenDirPad") {
                         pageStack.replace(Qt.resolvedUrl("ScreenDirPad.qml"))
                     }
                 }

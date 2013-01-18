@@ -27,6 +27,10 @@ Page {
             rightColor: "blue"
             downColor: "blue"
             upColor: "blue"
+            leftButtonWidth: 60
+            rightButtonWidth: 60
+            downButtonHeight: 60
+            upButtonHeight: 60
 
             onLeftPressed: SpriteFunctions.moveSpriteLeft(sprite)
             onLeftHeld: SpriteFunctions.moveSpriteLeft(sprite)

@@ -10,6 +10,11 @@ Rectangle {
     /** Specifies the interval which the held() signal will be executed when a button is pressed and held. The default is 200ms. **/
     property int holdInterval: 200
 
+    property real pressedOpacity: 0.5
+    property real releasedOpacity: 1
+    /** The duration of an transition when a button is pressed. **/
+    property int easingDuration: 100
+
     /** Triggered when the mouse area of this button has been clicked **/
     signal clicked
     /** Triggered when the mouse area has been pressed and is being held. This will be triggered at intervals specified by the holdInteveral. **/
@@ -21,6 +26,39 @@ Rectangle {
 
     width: 100
     height: 60
+    state: "RELEASED"
+
+    states: [
+        State {
+            name: "PRESSED"
+            when: touchButton.pressed
+            PropertyChanges {
+                target: padButton
+                opacity: pressedOpacity
+            }
+        },
+        State {
+            name: "RELEASED"
+            when: touchButton.released
+            PropertyChanges {
+                target: padButton
+                opacity: releasedOpacity
+            }
+        }
+    ]
+
+    transitions: [
+        Transition {
+            from: "PRESSED"
+            to: "RELEASED"
+            NumberAnimation{ property: "opacity"; easing: Easing.OutQuad; duration: easingDuration}
+        },
+        Transition {
+            from: "RELEASED"
+            to: "PRESSED"
+            NumberAnimation { property: "opacity"; easing: Easing.InQuad; duration: easingDuration}
+        }
+    ]
 
     onIconChanged: {
         icon.anchors.fill = padButton

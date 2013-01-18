@@ -1,45 +1,17 @@
 import QtQuick 1.1
 
-//TODO: comments
-Item {
-    signal leftPressed
-    signal downPressed
-    signal upPressed
-    signal rightPressed
-    signal leftHeld
-    signal downHeld
-    signal upHeld
-    signal rightHeld
-    signal leftReleased
-    signal rightReleased
-    signal upReleased
-    signal downReleased
-
-    property int dPadButtonWidth
-    property int dPadButtonHeight
-
-    property int leftButtonWidth
-    property int leftButtonHeight
-    property int rightButtonWidth
-    property int rightButtonHeight
-    property int downButtonWidth
-    property int downButtonHeight
-    property int upButtonWidth
-    property int upButtonHeight
-
-    property Image iconLeft
-    property Image iconRight
-    property Image iconDown
-    property Image iconUp
-    property Image iconDirPad
-
-    property color leftColor
-    property color rightColor
-    property color downColor
-    property color upColor
-
+/**
+  * ScreenPad.qml
+  * Represents a screen directional pad which has buttons
+  * on the four sides of the screen.
+  */
+AbstractDirectionalPad {
     id: dirPad
     objectName: "ScreenPad"
+
+    buttonPressedOpacity: .8
+    buttonReleasedOpacity: 0.01
+    buttonOpacityDuration: 200
 
     PadButton {
         id: leftButton
@@ -47,6 +19,7 @@ Item {
         height: 0
         icon: iconLeft
         color: leftColor
+        visible: leftButtonVisible
 
         anchors.top: dirPad.top
         anchors.bottom: dirPad.bottom
@@ -57,6 +30,11 @@ Item {
                 leftPressed()
             }
         }
+
+        opacity: buttonReleasedOpacity
+        pressedOpacity: buttonPressedOpacity
+        releasedOpacity: buttonReleasedOpacity
+        easingDuration: buttonOpacityDuration
     }
     PadButton {
         id: downButton
@@ -64,6 +42,7 @@ Item {
         height: downButtonHeight ? downButtonHeight : (dPadButtonHeight ? dPadButtonHeight : height)
         icon: iconDown
         color: downColor
+        visible: downButtonVisible
 
         anchors.left: leftButton.right
         anchors.right: rightButton.left
@@ -74,6 +53,11 @@ Item {
                 downPressed()
             }
         }
+
+        opacity: buttonReleasedOpacity
+        pressedOpacity: buttonPressedOpacity
+        releasedOpacity: buttonReleasedOpacity
+        easingDuration: buttonOpacityDuration
     }
     PadButton {
         id: upButton
@@ -81,6 +65,7 @@ Item {
         height: upButtonHeight ? upButtonHeight : (dPadButtonHeight ? dPadButtonHeight : height)
         icon: iconUp
         color: upColor
+        visible: upButtonVisible
 
         anchors.left: leftButton.right
         anchors.right: rightButton.left
@@ -91,6 +76,11 @@ Item {
                 upPressed()
             }
         }
+
+        opacity: buttonReleasedOpacity
+        pressedOpacity: buttonPressedOpacity
+        releasedOpacity: buttonReleasedOpacity
+        easingDuration: buttonOpacityDuration
     }
     PadButton {
         id: rightButton
@@ -98,6 +88,7 @@ Item {
         width: rightButtonWidth ? rightButtonWidth : (dPadButtonWidth ? dPadButtonWidth : width)
         icon: iconRight
         color: rightColor
+        visible: rightButtonVisible
 
         anchors.top: dirPad.top
         anchors.bottom: dirPad.bottom
@@ -108,21 +99,10 @@ Item {
                 rightPressed()
             }
         }
-    }
 
-    onIconDirPadChanged: {
-        console.log("ok")
-        iconDirPad.anchors.fill = dirPad
-    }
-
-    Component.onCompleted: {
-        leftButton.held.connect(leftHeld)
-        rightButton.held.connect(rightHeld)
-        upButton.held.connect(upHeld)
-        downButton.held.connect(downHeld)
-        leftButton.released.connect(leftReleased)
-        rightButton.released.connect(rightReleased)
-        upButton.released.connect(upReleased)
-        downButton.released.connect(downReleased)
+        opacity: buttonReleasedOpacity
+        pressedOpacity: buttonPressedOpacity
+        releasedOpacity: buttonReleasedOpacity
+        easingDuration: buttonOpacityDuration
     }
 }

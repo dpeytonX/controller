@@ -20,7 +20,7 @@ Page {
             y: 100
         }
 
-        DirectionalPad {
+        TraditionalPad {
             id: controller
             anchors.bottom: parent.bottom
             anchors.horizontalCenter: parent.horizontalCenter
