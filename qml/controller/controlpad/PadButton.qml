@@ -1,6 +1,5 @@
 import QtQuick 1.1
 
-//TODO: icon property
 //TODO: transitions
 Rectangle {
     id: padButton
@@ -24,21 +23,23 @@ Rectangle {
     height: 60
 
     onIconChanged: {
-        if(!!icon) {
-            icon.anchors.fill = padButton
-        }
+        icon.anchors.fill = padButton
     }
 
     MouseArea {
         id: touchButton
         anchors.fill: parent
         onPressAndHold: {
-            waitingForRelease = true
             pressAndHoldTimer.start()
         }
 
         onReleased: {
             waitingForRelease = false
+        }
+
+        onPressed: {
+            waitingForRelease = true
+            clicked(mouse)
         }
     }
 

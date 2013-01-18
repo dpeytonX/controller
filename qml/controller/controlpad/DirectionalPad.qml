@@ -1,4 +1,3 @@
-// import QtQuick 1.0 // to target S60 5th Edition or Maemo 5
 import QtQuick 1.1
 
 //TODO: comments
@@ -32,11 +31,15 @@ Item {
     property Image iconRight
     property Image iconDown
     property Image iconUp
+    property Image iconDirPad
 
     property color leftColor
     property color rightColor
     property color downColor
     property color upColor
+
+    id: dirPad
+    objectName: "DirectionalPad"
 
     PadButton {
         id: leftButton
@@ -44,46 +47,74 @@ Item {
         height: leftButtonHeight ? leftButtonHeight : (dPadButtonHeight ? dPadButtonHeight : height)
         icon: iconLeft
         color: leftColor
+
+        anchors.top: upButton.bottom
+
+        onClicked: {
+            if(waitingForRelease) {
+                leftPressed()
+            }
+        }
     }
     PadButton {
         id: downButton
-        width: !!downButtonWidth ? downButtonWidth : (dPadButtonWidth ? dPadButtonWidth : width)
-        height: !!downButtonHeight ? downButtonHeight : (dPadButtonHeight ? dPadButtonHeight : height)
+        width: downButtonWidth ? downButtonWidth : (dPadButtonWidth ? dPadButtonWidth : width)
+        height: downButtonHeight ? downButtonHeight : (dPadButtonHeight ? dPadButtonHeight : height)
         icon: iconDown
         color: downColor
 
         anchors.top: leftButton.bottom
         anchors.left: leftButton.right
+
+        onClicked: {
+            if(waitingForRelease) {
+                downPressed()
+            }
+        }
     }
     PadButton {
         id: upButton
-        width: !!upButtonWidth ? upButtonWidth : (dPadButtonWidth ? dPadButtonWidth : width)
-        height: !!upButtonHeight ? upButtonHeight : (dPadButtonHeight ? dPadButtonHeight : height)
+        width: upButtonWidth ? upButtonWidth : (dPadButtonWidth ? dPadButtonWidth : width)
+        height: upButtonHeight ? upButtonHeight : (dPadButtonHeight ? dPadButtonHeight : height)
         icon: iconUp
         color: upColor
 
         anchors.bottom: leftButton.top
         anchors.left: leftButton.right
+        anchors.top: dirPad.top
+
+        onClicked: {
+            if(waitingForRelease) {
+                upPressed()
+            }
+        }
     }
     PadButton {
         id: rightButton
-        width: !!rightButtonWidth ? rightButtonWidth : (dPadButtonWidth ? dPadButtonWidth : width)
-        height: !!rightButtonHeight ? rightButtonHeight : (dPadButtonHeight ? dPadButtonHeight : height)
+        width: rightButtonWidth ? rightButtonWidth : (dPadButtonWidth ? dPadButtonWidth : width)
+        height: rightButtonHeight ? rightButtonHeight : (dPadButtonHeight ? dPadButtonHeight : height)
         icon: iconRight
         color: rightColor
 
         anchors.left: upButton.right
         anchors.top: upButton.bottom
+
+        onClicked: {
+            if(waitingForRelease) {
+                rightPressed()
+            }
+        }
     }
 
     width:leftButton.width + Math.max(upButton.width, downButton.width) + rightButton.width
     height: upButton.height + Math.max(leftButton.height, rightButton.height) + downButton.height
 
+    onIconDirPadChanged: {
+        console.log("ok")
+        iconDirPad.anchors.fill = dirPad
+    }
+
     Component.onCompleted: {
-        leftButton.clicked.connect(leftPressed)
-        rightButton.clicked.connect(rightPressed)
-        upButton.clicked.connect(upPressed)
-        downButton.clicked.connect(downPressed)
         leftButton.held.connect(leftHeld)
         rightButton.held.connect(rightHeld)
         upButton.held.connect(upHeld)

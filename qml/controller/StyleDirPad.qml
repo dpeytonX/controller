@@ -1,6 +1,7 @@
 import QtQuick 1.1
 import com.nokia.meego 1.0
 import "controlpad"
+import "resources/spritefunctions.js" as SpriteFunctions
 
 Page {
     tools: commonTools
@@ -31,6 +32,7 @@ Page {
             iconUp: iconUp
             iconRight: iconRight
             iconLeft: iconLeft
+            iconDirPad: iconDirPad
 
             leftColor: "black"
             rightColor: "black"
@@ -40,34 +42,14 @@ Page {
             anchors.bottom: parent.bottom
             anchors.horizontalCenter: parent.horizontalCenter
 
-            function moveSpriteLeft() {
-                console.log("Moving sprite left")
-                sprite.x -= 10
-            }
-
-            function moveSpriteRight() {
-                console.log("Moving sprite right")
-                sprite.x += 10
-            }
-
-            function moveSpriteDown() {
-                console.log("Moving sprite down")
-                sprite.y += 10
-            }
-
-            function moveSpriteUp() {
-                console.log("Moving sprite up")
-                sprite.y -= 10
-            }
-
-            onLeftPressed: moveSpriteLeft()
-            onLeftHeld: moveSpriteLeft()
-            onRightPressed: moveSpriteRight()
-            onRightHeld: moveSpriteRight()
-            onDownPressed: moveSpriteDown()
-            onDownHeld: moveSpriteDown()
-            onUpPressed: moveSpriteUp()
-            onUpHeld: moveSpriteUp()
+            onLeftPressed: SpriteFunctions.moveSpriteLeft(sprite)
+            onLeftHeld: SpriteFunctions.moveSpriteLeft(sprite)
+            onRightPressed: SpriteFunctions.moveSpriteRight(sprite)
+            onRightHeld: SpriteFunctions.moveSpriteRight(sprite)
+            onDownPressed: SpriteFunctions.moveSpriteDown(sprite)
+            onDownHeld: SpriteFunctions.moveSpriteDown(sprite)
+            onUpPressed: SpriteFunctions.moveSpriteUp(sprite)
+            onUpHeld: SpriteFunctions.moveSpriteUp(sprite)
 
             Image {
                 id: iconDown
@@ -84,6 +66,10 @@ Page {
             Image {
                 id: iconLeft
                 source: "resources/left.png"
+            }
+            Image {
+                id: iconDpad
+                source: "resources/dpad.png"
             }
         }
     }

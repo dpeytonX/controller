@@ -1,6 +1,7 @@
 import QtQuick 1.1
 import com.nokia.meego 1.0
 import "controlpad"
+import "resources/spritefunctions.js" as SpriteFunctions
 
 Page {
     id: mainPage
@@ -28,34 +29,14 @@ Page {
             downColor: "blue"
             upColor: "blue"
 
-            function moveSpriteLeft() {
-                console.log("Moving sprite left")
-                sprite.x -= 10
-            }
-
-            function moveSpriteRight() {
-                console.log("Moving sprite right")
-                sprite.x += 10
-            }
-
-            function moveSpriteDown() {
-                console.log("Moving sprite down")
-                sprite.y += 10
-            }
-
-            function moveSpriteUp() {
-                console.log("Moving sprite up")
-                sprite.y -= 10
-            }
-
-            onLeftPressed: moveSpriteLeft()
-            onLeftHeld: moveSpriteLeft()
-            onRightPressed: moveSpriteRight()
-            onRightHeld: moveSpriteRight()
-            onDownPressed: moveSpriteDown()
-            onDownHeld: moveSpriteDown()
-            onUpPressed: moveSpriteUp()
-            onUpHeld: moveSpriteUp()
+            onLeftPressed: SpriteFunctions.moveSpriteLeft(sprite)
+            onLeftHeld: SpriteFunctions.moveSpriteLeft(sprite)
+            onRightPressed: SpriteFunctions.moveSpriteRight(sprite)
+            onRightHeld: SpriteFunctions.moveSpriteRight(sprite)
+            onDownPressed: SpriteFunctions.moveSpriteDown(sprite)
+            onDownHeld: SpriteFunctions.moveSpriteDown(sprite)
+            onUpPressed: SpriteFunctions.moveSpriteUp(sprite)
+            onUpHeld: SpriteFunctions.moveSpriteUp(sprite)
         }
     }
 }

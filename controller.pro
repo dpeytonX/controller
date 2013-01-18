@@ -52,4 +52,5 @@ OTHER_FILES += \
     qml/controller/resources/up.png \
     qml/controller/resources/right.png \
     qml/controller/resources/left.png \
-    qml/controller/resources/down.png
+    qml/controller/resources/down.png \
+    qml/controller/resources/dpad.png
