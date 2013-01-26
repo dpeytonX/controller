@@ -26,6 +26,11 @@ Item {
     signal upReleased
     signal downReleased
 
+    property string leftButtonState: leftButton.state
+    property string rightButtonState: rightButton.state
+    property string downButtonState: downButton.state
+    property string upButtonState: upButton.state
+
     property int dPadButtonWidth
     property int dPadButtonHeight
 

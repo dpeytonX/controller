@@ -13,6 +13,8 @@ AbstractDirectionalPad {
     buttonReleasedOpacity: 0.01
     buttonOpacityDuration: 200
 
+    property int buttonHoldInterval
+
     PadButton {
         id: leftButton
         width: leftButtonWidth ? leftButtonWidth : (dPadButtonWidth ? dPadButtonWidth : width)
@@ -20,6 +22,7 @@ AbstractDirectionalPad {
         icon: iconLeft
         color: leftColor
         visible: leftButtonVisible
+        holdInterval: buttonHoldInterval
 
         anchors.top: dirPad.top
         anchors.bottom: dirPad.bottom
@@ -43,6 +46,7 @@ AbstractDirectionalPad {
         icon: iconDown
         color: downColor
         visible: downButtonVisible
+        holdInterval: buttonHoldInterval
 
         anchors.left: leftButton.right
         anchors.right: rightButton.left
@@ -66,6 +70,7 @@ AbstractDirectionalPad {
         icon: iconUp
         color: upColor
         visible: upButtonVisible
+        holdInterval: buttonHoldInterval
 
         anchors.left: leftButton.right
         anchors.right: rightButton.left
@@ -89,6 +94,7 @@ AbstractDirectionalPad {
         icon: iconRight
         color: rightColor
         visible: rightButtonVisible
+        holdInterval: buttonHoldInterval
 
         anchors.top: dirPad.top
         anchors.bottom: dirPad.bottom
